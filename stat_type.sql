@@ -1,4 +1,4 @@
-SELECT AS STRUCT
+WITH Types AS (SELECT AS STRUCT
   'Bug'Type,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
     AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
   FROM `case-study-1-419522.pokemon_stats.pkmn`
@@ -104,4 +104,6 @@ SELECT AS STRUCT
   'Water'Type,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
     AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
   FROM `case-study-1-419522.pokemon_stats.pkmn`
-  WHERE Dynamax = 'X' AND Type_1='Water'OR Type_2='Water'
+  WHERE Dynamax = 'X' AND Type_1='Water'OR Type_2='Water')
+SELECT*FROM Types
+ORDER BY Amount ASC;
