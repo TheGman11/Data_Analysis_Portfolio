@@ -109,18 +109,18 @@ Question 3:
 	For avg_Total_Stats: Bug is the lowest at 385 while Dragon is the highest at 540.
 
 Question 4: 
-	Based off the data:
+	 Based off the data:
+ 
 		Water-types are the most common at 174 Pokémon while Ice-types are the least common at 67 Pokémon.
 
 Question 5:
-	The following Viz entails what types have been discovered and what types have not.
- 
-	[Discovering Types Viz](https://public.tableau.com/app/profile/nathan.rahanaev/viz/Discovered_Types_Viz/Sheet1)
+	 The following Viz entails what types have been discovered and what types have not.
+	 [Discovering Types Viz](https://public.tableau.com/app/profile/nathan.rahanaev/viz/Discovered_Types_Viz/Sheet1)
  
 	Out of the 342 possible type combinations, 121 type combinations have yet to be discovered.
  
 **Report**
-[Report of Analysis](https://github.com/TheGman11/Data_Analysis_Portfolio/blob/Case_Study01_Pok%C3%A9mon-Type-Analysis/Pokemon_Types_Report.txt)
+ [Report of Analysis](https://github.com/TheGman11/Data_Analysis_Portfolio/blob/Case_Study01_Pok%C3%A9mon-Type-Analysis/Pokemon_Types_Report.txt)
 
 ## Education
 SUNY College at Oneonta, Oneonta NY: 
