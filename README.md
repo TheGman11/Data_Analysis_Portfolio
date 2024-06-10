@@ -39,23 +39,26 @@ Question 4: Which types are the most and least common?
 Question 5: What types have not been discovered yet?
 
 **Description:** 
-A small and quick analysis of all 1025 Pokémon to answer a group of questions regarding their types and stats.
+ A small and quick analysis of all 1025 Pokémon to answer a group of questions regarding their types and stats.
 
 **Skills:** 
-Data cleaning,  Data manipulation, Data analysis, Data visualization.
+ Data cleaning,  Data manipulation, Data analysis, Data visualization.
 
 **Technology:** 
-Google Sheets, BigQuery(SQL), Tableau.
+ Google Sheets, BigQuery(SQL), Tableau.
 
 **Results:** 
 Question 1:
-For all Pokémon as of generation 9, the lowest average stat is Speed at 71 and the highest average stat is Attack at 82. 
+ For all Pokémon as of generation 9, the lowest average stat is Speed at 71 and the highest average stat is Attack at 82. 
 
 Question 2:
-The following Viz entails what are the highest and lowest stats for each type of Pokémon
+ The following Viz entails what are the highest and lowest stats for each type of Pokémon:
+
 [Types vs. Averages Bar charts](https://public.tableau.com/app/profile/nathan.rahanaev/viz/Typevs_AverageStats/Sheet1)
+
 Based off the Viz, the data pulled is shown below:
 Note - The numbers below are AVERAGE VALUES.
+
 	For Bug, Special Attack is lowest at 57 while Attack is the highest at 72.
  
 	For Dark, Special Defense is the lowest at 72 while Attack is the highest at 95.
@@ -94,6 +97,7 @@ Note - The numbers below are AVERAGE VALUES.
  
 
 Question 3:
+
 	For avg_Hp: Bug is the lowest at 58 while Dragon is the highest at 88.
  
 	For avg_Attack: Fairy is the lowest at 71 while Fighting is the highest at 109.
