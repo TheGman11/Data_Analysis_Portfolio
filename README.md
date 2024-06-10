@@ -1,14 +1,14 @@
 # Nathan Rahanaev's Data Analyst Portfolio
 ## Bio
-*Hello to all! My name is Nathan Rahanaev and I am an aspiring IT professional and data analyst. I have an analytical background in physics, programming and electronics. As of now, I am currently learning more about data analytics to better my knowledge of the field. I have developed a strong foundation and discipline in science through my passion for using data to divulge meaningful insights. I am excited to bring my technical and analytical skills to the data analytics field as an entry-level data analyst. 
+Hello to all! My name is Nathan Rahanaev and I am an aspiring IT professional and data analyst. I have an analytical background in physics, programming and electronics. As of now, I am currently learning more about data analytics to better my knowledge of the field. I have developed a strong foundation and discipline in science through my passion for using data to divulge meaningful insights. I am excited to bring my technical and analytical skills to the data analytics field as an entry-level data analyst. 
 
-*During my time in the physics field and studying, I have enhanced my ability to work with complex data and detect patterns or trends. I also have experience in laboratory techniques and etiquette, data management, and statistical analysis as a result. All of these I believe will be priceless assets in my data analyst career.
+During my time in the physics field and studying, I have enhanced my ability to work with complex data and detect patterns or trends. I also have experience in laboratory techniques and etiquette, data management, and statistical analysis as a result. All of these I believe will be priceless assets in my data analyst career.
 
-*In my free time, I tend to tinker with my electronics, program videogames and experiment with new data analysis tools and techniques. Whether I work on a team or independently, I relish the opportunity to grow and will do so by any means. I strive for the thrill of discovering new insights and the satisfaction of using data to solve complex problems.
+In my free time, I tend to tinker with my electronics, program videogames and experiment with new data analysis tools and techniques. Whether I work on a team or independently, I relish the opportunity to grow and will do so by any means. I strive for the thrill of discovering new insights and the satisfaction of using data to solve complex problems.
 
-*Here is my CV in [pdf](https://github.com/TheGman11/Data_Analysis_Portfolio/blob/main/Nathan%20Rahanaev%20CV.pdf).
+Here is my CV in [pdf](https://github.com/TheGman11/Data_Analysis_Portfolio/blob/main/Nathan%20Rahanaev%20CV.pdf).
 
-*This repository holds material that will showcase my skills, projects and track future progress in any Data Analytics, Data Science, or other programming related topics.
+This repository holds material that will showcase my skills, projects and track future progress in any Data Analytics, Data Science, or other programming related topics.
 
 ## Table of Contents
 - [Bio](https://github.com/TheGman11/Data_Analysis_Portfolio/blob/main/README.md#Bio)
@@ -24,12 +24,18 @@ This section contains all data analytics projects with brief information regardi
 ### Pokémon Type Analysis
 **Data & Code:** 
 (https://github.com/TheGman11/Data_Analysis_Portfolio/tree/Case_Study01_Pokémon-Type-Analysis)
+
 **Objective:** 
 The Objective of this analysis is to answer a series of questions in which those results can be used for potential future analysis. The questions are as followed:
+
 Question 1: Excluding the Total Stats value, Which stats are the highest and lowest amongst all pokémon?
+
 Question 2: What are the highest and lowest stats for each type of Pokémon?
+
 Question 3: which types have the highest and lowest average stat values respectively?
+
 Question 4: Which types are the most and least common?
+
 Question 5: What types have not been discovered yet?
 
 **Description:** 
