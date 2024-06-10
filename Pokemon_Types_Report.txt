@@ -1,0 +1,225 @@
+## Prelude
+To start off, lets load in the datatable and observe the data we are looking at, to do so, lets use this following piece of code:
+
+SELECT * FROM `case-study-1-419522.pokemon_stats.pkmn`
+
+Upon viewing the data set,there are currently 16 columns of data to view from.
+Dex_Number, Name,Type_1, Type_2, Hp, Attack, Defense, Sp_Attack, Sp_Defense, Speed, Total_Stats, Generation, Legendary, Alt_Form, Mega, and Dynamax.
+
+Before analyzing the data, a few rules must be made to avoid duplicates or any skewing of data.
+
+General Rules: 
+*Forms and variants shall only be included in the data if the Pokémon's type and/or stats change between forms(all regional variants, mega evolutions, Silvally, Arceus, Castform, Terapagos and its forms, Rotom and so on).
+
+*All Dynamax/Gigantamax forms shall be omitted from this analysis as they are only differentiated only by appearance and not by type nor stats(An exception to this is Eternamax Eternatus as its stats greatly increase.However, due to this form of Eternatus being unobtainable in the game, this form shall also be omitted from analysis).
+
+##Opening the Dataset
+For this Case-study, we are to analyze 5 questions those being:
+Question 1: Excluding the Total Stats value, Which stats are the highest and lowest amongst all Pokémon?
+Question 2: What are the highest and lowest stats for each type of Pokémon?
+Question 3: which types have the highest and lowest average stat values respectively?
+Question 4: Which types are the most and least common?
+Question 5: What types have not been discovered yet?
+
+To start off, question 1 asks for the average stat values of ALL Pokémon so before we do any massive changes to the table, lets find the average values using this code below.
+
+  SELECT AS STRUCT
+   COUNT(Name) Name,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X'
+  
+ The chunk of code above creates a table that holds the count of how many Pokémon there are and the average values for each stat. From this table, we find that:
+ For all Pokémon, the lowest average stat is Speed at 71 and the highest average stat is Attack at 82. 
+ 
+## Making the Temp Table
+Lets first make a temporary Table that will hold the data containing types, amount of Pokémon per type, and the mean(or average)of all stats including the total stat pool(we are using average since there are over 1000 Pokémon with different stats).
+To do so, lets modify the previous block of code to better fit the demand. Lets add a type column and change the name to the COUNT(Name) function to 'Amount'. Lastly, lets add 2 conditions that will isolate a specific type.
+
+SELECT AS STRUCT
+  'Bug'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X'AND Type_1='Bug'OR Dynamax="X" AND Type_2='Bug'
+UNION ALL
+SELECT AS STRUCT
+  'Dark'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Dark'OR Dynamax="X" AND Type_2='Dark'
+  
+The block of code above creates a 2 row temp table with 9 columns representing Type, Amount of said type and averages for all stat values. 
+For the remaining types, lets repeat the block chain and to make sthings simple, lets use an Alias called Types so the table has a name and can be easily called at any time.
+
+WITH Types AS (SELECT AS STRUCT
+  'Bug'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X'AND Type_1='Bug'OR Dynamax="X" AND Type_2='Bug'
+UNION ALL
+SELECT AS STRUCT
+  'Dark'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Dark'OR Dynamax="X" AND Type_2='Dark'
+UNION ALL
+SELECT AS STRUCT
+  'Dragon'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Dragon'OR Dynamax="X" AND Type_2='Dragon'
+UNION ALL
+SELECT AS STRUCT
+  'Electric'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Electric'OR Dynamax="X" AND Type_2='Electric'
+UNION ALL
+SELECT AS STRUCT
+  'Fairy'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Fairy'OR Dynamax="X" AND Type_2='Fairy'
+UNION ALL
+SELECT AS STRUCT
+  'Fighting'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Fighting'OR Dynamax="X" AND Type_2='Fighting'
+UNION ALL
+SELECT AS STRUCT
+  'Fire'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Fire'OR Dynamax="X" AND Type_2='Fire'
+UNION ALL
+SELECT AS STRUCT
+  'Flying'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Flying'OR Dynamax="X" AND Type_2='Flying'
+UNION ALL
+SELECT AS STRUCT
+  'Ghost'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Ghost'OR Dynamax="X" AND Type_2='Ghost'
+  UNION ALL
+SELECT AS STRUCT
+  'Grass'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Grass'OR Dynamax="X" AND Type_2='Grass'
+UNION ALL
+SELECT AS STRUCT
+  'Ground'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Ground'OR Dynamax="X" AND Type_2='Ground'
+UNION ALL
+SELECT AS STRUCT
+  'Ice'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Ice'OR Dynamax="X" AND Type_2='Ice'
+UNION ALL
+SELECT AS STRUCT
+  'Normal'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Normal'OR Dynamax="X" AND Type_2='Normal'
+UNION ALL
+SELECT AS STRUCT
+  'Poison'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Poison'OR Dynamax="X" AND Type_2='Poison'
+UNION ALL
+SELECT AS STRUCT
+  'Psychic'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Psychic'OR Dynamax="X" AND Type_2='Psychic'
+UNION ALL
+SELECT AS STRUCT
+  'Rock'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Rock'OR Dynamax="X" AND Type_2='Rock'
+UNION ALL
+SELECT AS STRUCT
+  'Steel'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Steel'OR Dynamax="X" AND Type_2='Steel'
+UNION ALL
+SELECT AS STRUCT
+  'Water'Type,COUNT(Name) Amount,AVG(Hp) avg_Hp,AVG(Attack) avg_Attack,AVG(Defense) avg_Defense,AVG(Sp_Attack) avg_Sp_Attack, 
+    AVG(Sp_Defense) avg_Sp_Defense,AVG(Speed) avg_Speed,AVG(Total_Stats) avg_Total_Stats
+  FROM `case-study-1-419522.pokemon_stats.pkmn`
+  WHERE Dynamax = 'X' AND Type_1='Water'OR Dynamax="X" AND Type_2='Water')
+
+Now that we have our temporary table with its alias set up, we can start analyzing the data.
+For question 2, we need the highest and lowest average stat values for each type.To answer this question, We can search through each row in the new temp table and record the desired values needed.
+The following is the data extracted, analyzed, and recorded from the temp table:
+
+	For Bug, Special Attack is lowest at 57 while Attack is the highest at 72.
+	For Dark, Special Defense is the lowest at 72 while Attack is the highest at 95.
+	For Dragon, Speed is the lowest at 82 while Attack is the highest at 100.
+	For Electric, Hp is the lowest at 68 while Special Attack is the highest at 87.
+	For Fairy,  Hp is the lowest at 69 while Special Defense is the highest at 87.
+	For Fighting, Special Attack is the lowest at 67 while Attack is the highest at 109.
+	For Fire, Hp & Defense are the lowest at 72 while Special Attack is the highest at 89.
+	For Flying, Defense is the lowest at 69 while Speed is the highest at 86.
+	For Ghost, Hp is the lowest at 67 while Special Attack is the highest at 84.
+	For Grass, Speed is the lowest at 64 while Attack is the highest at 77.
+	For Ground, Speed is the lowest at 60 while Attack is the highest at 91.
+	For Ice, Speed is the lowest at 70 while Attack is the highest at 89
+	For Normal, Special Attack is the lowest at 61 while Hp is the highest at 77.
+	For Poison, Hp & Defense are the lowest at 68 while Special Attack is the highest at 75
+	For Psychic, Hp is the lowest at 75 while Special Attack is the highest at 96.
+	For Rock, Speed is the lowest at 57 while Defense is the highest at 103.
+	For Steel, Speed is the lowest at 64 while Defense is the highest at 109.
+	For Water, Speed is the lowest at 68 while Attack is the highest at 77.
+
+Based off this data, we can see that the Speed stat is consistently the lowest amongst all types where as the Attack stat is consistently the highest. 
+This correlates to the results acquired earlier on in the case study where the lowest stat on average for all Pokémon was the Speed stat and the highest was the Attack stat.
+
+For question 3, we need to find the types that have the highest/lowest average values for each stat group.To do so we can order the columns from smallest to largest, we can use the following code:
+
+ORDER BY avg_Hp ASC;
+
+This orders the avg_Hp column from smallest to largest, with smallest being the 1st row and largest being the last row. We can record the data required and repeat this process for the remaining stat groups
+(ORDER BY avg_Hp DESC; works as well, just remember the 1st row would be the largest value in this case)
+The data recorded is as follows:
+
+For avg_Hp: Bug is the lowest at 58 while Dragon is the highest at 88.
+For avg_Attack: Bug & Fairy are the lowesr at 72 while Fighting is the highest at 109.
+For avg_Defense:Normal is the lowest at 62 while Steel is the highest at 109.
+For avg_Sp_Attack: Bug is the lowest at 57 while Dragon is the highest at 98.
+For avg_Sp_Defense:Bug and Normal are the lowest at 66 while Psychic is the highest at 88.
+For avg_Speed: Rock is the lowest at 57 while Flying is the highest at 86.
+For avg_Total_Stats: Bug is the lowest at 386 while Dragon is the highest at 544.
+
+Based off this data, we can convey that Bug has the lowest average stat values out of all types since it holds 5 average values amongst the stat groups that are the lowest and Dragon  has the highest average stat values since it holds 3 values that are the highest.
+
+Question 4 asks which Pokémon types are the most common and least common.
+To see which type is the most common or most rare, we can put down the following block of code beneth the block that creates the temp table.
+
+ORDER BY Amount ASC;
+(ORDER BY Amount DESC; works as well, just remember the 1st row would be the highest value in this case)
+
+After typing these lines in, one can find out that the Ice type is the most rare type at 67 pokémon 
+and Water is the most common type at 174 pokémon.
+
+Question 5 asks for what pokemon types havent been disocvered.
+To solve this, we can simply take the original dataset and make a viz out of it that can show us the answer.
+To do so, we can make a heat map with the X axis representing Type_1 and the Y axis representing Type_2. One thing to consider about Type_2 is that the null value indicates that the pokémon is single typed.
+For the heat map, any value that has a number indicates that the type combination exists, and those without a number shall indicate that the type combination does not exists.
+We can view the viz by click on this link:
+
+[Discovering Types](https://public.tableau.com/app/profile/nathan.rahanaev/viz/Discovered_Types_Viz/Sheet1)
+
+There are currently 18 known Pokémon types and since a Pokémon can have either 1 or 2 types at most, that yields a combination of 342 possible type combinations. 
+Out of the 342 possible type combinations, 121 type combinations have yet to be discovered.
+
