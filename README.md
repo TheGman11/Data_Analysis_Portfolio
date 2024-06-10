@@ -28,15 +28,15 @@ This section contains all data analytics projects with brief information regardi
 **Objective:** 
 The Objective of this analysis is to answer a series of questions in which those results can be used for potential future analysis. The questions are as followed:
 
-Question 1: Excluding the Total Stats value, Which stats are the highest and lowest amongst all pokémon?
+- Question 1: Excluding the Total Stats value, Which stats are the highest and lowest amongst all pokémon?
 
-Question 2: What are the highest and lowest stats for each type of Pokémon?
+- Question 2: What are the highest and lowest stats for each type of Pokémon?
 
-Question 3: which types have the highest and lowest average stat values respectively?
+- Question 3: which types have the highest and lowest average stat values respectively?
 
-Question 4: Which types are the most and least common?
+- Question 4: Which types are the most and least common?
 
-Question 5: What types have not been discovered yet?
+- Question 5: What types have not been discovered yet?
 
 **Description:** 
  A small and quick analysis of all 1025 Pokémon to answer a group of questions regarding their types and stats.
@@ -49,9 +49,11 @@ Question 5: What types have not been discovered yet?
 
 **Results:** 
 Question 1:
+
  For all Pokémon as of generation 9, the lowest average stat is Speed at 71 and the highest average stat is Attack at 82. 
 
 Question 2:
+
  The following Viz entails what are the highest and lowest stats for each type of Pokémon:
 
 [Types vs. Averages Bar charts](https://public.tableau.com/app/profile/nathan.rahanaev/viz/Typevs_AverageStats/Sheet1)
