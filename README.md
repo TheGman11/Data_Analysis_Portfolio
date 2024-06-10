@@ -56,7 +56,7 @@ Question 2:
 
  The following Viz entails what are the highest and lowest stats for each type of Pokémon:
 
-[Types vs. Averages Bar charts](https://public.tableau.com/app/profile/nathan.rahanaev/viz/Typevs_AverageStats/Sheet1)
+[Types vs. Averages Bar charts] (https://public.tableau.com/app/profile/nathan.rahanaev/viz/Typevs_AverageStats/Sheet1)
 
 Based off the Viz, the data pulled is shown below:
 Note - The numbers below are AVERAGE VALUES.
@@ -121,12 +121,12 @@ Question 4:
 
 Question 5:
 	 The following Viz entails what types have been discovered and what types have not.
-	 [Discovering Types Viz](https://public.tableau.com/app/profile/nathan.rahanaev/viz/Discovered_Types_Viz/Sheet1)
+	 [Discovering Types Viz] (https://public.tableau.com/app/profile/nathan.rahanaev/viz/Discovered_Types_Viz/Sheet1)
  
 	Out of the 342 possible type combinations, 121 type combinations have yet to be discovered.
  
 **Report**
- [Report of Analysis](https://github.com/TheGman11/Data_Analysis_Portfolio/blob/Case_Study01_Pok%C3%A9mon-Type-Analysis/Pokemon_Types_Report.txt)
+ [Report of Analysis] (https://github.com/TheGman11/Data_Analysis_Portfolio/blob/Case_Study01_Pok%C3%A9mon-Type-Analysis/Pokemon_Types_Report.txt)
 
 ## Education
 SUNY College at Oneonta, Oneonta NY: 
