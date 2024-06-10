@@ -6,7 +6,7 @@ During my time in the physics field and studying, I have enhanced my ability to 
 
 In my free time, I tend to tinker with my electronics, program videogames and experiment with new data analysis tools and techniques. Whether I work on a team or independently, I relish the opportunity to grow and will do so by any means. I strive for the thrill of discovering new insights and the satisfaction of using data to solve complex problems.
 
-Here is my CV in [pdf](https://github.com/TheGman11/Data_Analysis_Portfolio/blob/main/Nathan-Resume.pdf).
+Here is my CV in [pdf](https://github.com/TheGman11/Data_Analysis_Portfolio/blob/main/Nathan_Resume.pdf).
 
 This repository holds material that will showcase my skills, projects and track future progress in any Data Analytics, Data Science, or other programming related topics.
 
