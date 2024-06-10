@@ -137,6 +137,6 @@ Aug 2017 - May 2021
 - [Google Data Analytics Professional Certificate](https://coursera.org/share/66927849924a65d0a3fa10ec1cfe3419) (May 2024) (Coursera - Google)
 
 ## Contacts
-- LinkedIn: [@nathanrahanaev] (www.linkedin.com/in/nathan-rahanaev-233746266)
+- LinkedIn: [@nathanrahanaev](www.linkedin.com/in/nathan-rahanaev-233746266)
 - Tableau:(https://public.tableau.com/app/profile/nathan.rahanaev/vizzes)
 - Email: nathanrahanaev@gmail.com
