@@ -57,31 +57,55 @@ The following Viz entails what are the highest and lowest stats for each type of
 Based off the Viz, the data pulled is shown below:
 Note - The numbers below are AVERAGE VALUES.
 	For Bug, Special Attack is lowest at 57 while Attack is the highest at 72.
+ 
 	For Dark, Special Defense is the lowest at 72 while Attack is the highest at 95.
+ 
 	For Dragon, Speed is the lowest at 82 while Attack is the highest at 100.
+ 
 	For Electric, Hp is the lowest at 68 while Special Attack is the highest at 87.
+ 
 	For Fairy,  Hp is the lowest at 69 while Special Defense is the highest at 87.
+ 
 	For Fighting, Special Attack is the lowest at 67 while Attack is the highest at 109.
+ 
 	For Fire, Hp & Defense are the lowest at 72 while Special Attack is the highest at 89.
+ 
 	For Flying, Defense is the lowest at 69 while Speed is the highest at 86.
+ 
 	For Ghost, Hp is the lowest at 67 while Special Attack is the highest at 84.
+ 
 	For Grass, Speed is the lowest at 64 while Attack is the highest at 77.
+ 
 	For Ground, Speed is the lowest at 60 while Attack is the highest at 91.
+ 
 	For Ice, Speed is the lowest at 70 while Attack is the highest at 89
+ 
 	For Normal, Special Attack is the lowest at 61 while Hp is the highest at 77.
+ 
 	For Poison, Hp & Defense are the lowest at 68 while Special Attack is the highest at 75
+ 
 	For Psychic, Hp is the lowest at 75 while Special Attack is the highest at 96.
+ 
 	For Rock, Speed is the lowest at 57 while Defense is the highest at 103.
+ 
 	For Steel, Speed is the lowest at 64 while Defense is the highest at 109.
+ 
 	For Water, Speed is the lowest at 68 while Attack is the highest at 77.
+ 
 
 Question 3:
 	For avg_Hp: Bug is the lowest at 58 while Dragon is the highest at 88.
+ 
 	For avg_Attack: Fairy is the lowest at 71 while Fighting is the highest at 109.
+ 
 	For avg_Defense:Normal is the lowest at 62 while Steel is the highest at 109.
+ 
 	For avg_Sp_Attack: Bug is the lowest at 57 while Dragon is the highest at 97.
+ 
 	For avg_Sp_Defense:Bug and Normal are the lowest at 66 while Psychic is the highest at 88.
+ 
 	For avg_Speed: Rock is the lowest at 57 while Flying is the highest at 86.
+ 
 	For avg_Total_Stats: Bug is the lowest at 385 while Dragon is the highest at 540.
 
 Question 4: 
@@ -90,8 +114,11 @@ Question 4:
 
 Question 5:
 	The following Viz entails what types have been discovered and what types have not.
+ 
 	[Discovering Types Viz](https://public.tableau.com/app/profile/nathan.rahanaev/viz/Discovered_Types_Viz/Sheet1)
+ 
 	Out of the 342 possible type combinations, 121 type combinations have yet to be discovered.
+ 
 **Report**
 [Report of Analysis](https://github.com/TheGman11/Data_Analysis_Portfolio/blob/Case_Study01_Pok%C3%A9mon-Type-Analysis/Pokemon_Types_Report.txt)
 
